@@ -1,0 +1,181 @@
+.header {
+  // .header__container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: rem(50);
+    margin-bottom: rem(50);
+  }
+  // .header__logo
+  &__logo {
+    color: $darkColor;
+    @include adaptiveValue('font-size', 20, 14);
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    img {
+      width: rem(35);
+      height: rem(36);
+      margin-right: rem(10);
+    }
+  }
+  // .header__menu
+  &__menu {
+  }
+  // .header__buttons
+  &__buttons {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue('gap', 30, 10);
+  }
+}
+.menu {
+  // .menu__body
+  &__body {
+    position: relative;
+    z-index: 5;
+    @include tablet {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #bcc1c8;
+      padding: 100px 15px 20px 15px;
+      transition: left 0.3s;
+      overflow: auto;
+      z-index: 1;
+    }
+  }
+  // .menu__list
+  &__list {
+    display: flex;
+    gap: rem(40);
+    @include tablet {
+      flex-direction: column;
+      gap: rem(35);
+      align-items: center;
+      @include adaptiveValue('font-size', 35, 16);
+    }
+  }
+  // .menu__item
+  &__item {
+    @include adaptiveValue('font-size', 16, 14);
+    font-weight: 400;
+  }
+  // .menu__link
+  &__link {
+    position: relative;
+    @media (any-hover: hover) {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $redColor;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+}
+.button {
+  // .button__sign-in
+  &__sign-in {
+    color: $darkColor;
+    // font-size: rem(16);
+    @include adaptiveValue('font-size', 16, 10);
+    font-weight: 500;
+  }
+  // .button__sign-up
+  &__sign-up {
+    color: $redColor;
+    //font-size: rem(16);
+    @include adaptiveValue('font-size', 16, 10);
+    font-weight: 500;
+    border-radius: rem(50);
+    border: 1px solid $redColor;
+    padding: rem(12) 0;
+    @include adaptiveValue('padding-left', 45, 15);
+    @include adaptiveValue('padding-right', 45, 15);
+    transition: all 0.3s ease;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #fff;
+        background-color: $redColor;
+      }
+    }
+  }
+  // .button__menu
+  &__menu {
+    display: none;
+    @include tablet {
+      display: block;
+      position: relative;
+      z-index: 5;
+      width: rem(30);
+      height: rem(15);
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: $darkColor;
+        height: rem(2);
+        width: 100%;
+        left: 0;
+        top: 0;
+        transition: all 0.3s;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $darkColor;
+        height: rem(2);
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        transition: all 0.3s;
+      }
+    }
+    // .button__menu_line
+    &_line {
+      top: calc(50% - 1px);
+      @include tablet {
+        content: "";
+        position: absolute;
+        background-color: $darkColor;
+        height: rem(2);
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+// burger menu open
+.menu-open .button__menu::before {
+  top: calc(50% - rem(1));
+  transform: rotate(-45deg);
+}
+.menu-open .button__menu::after {
+  bottom: calc(50% - rem(1));
+  transform: rotate(45deg);
+}
+.menu-open .button__menu_line {
+  left: 50%;
+  width: 0;
+}
+.menu-open .menu__body {
+  left: 0;
+}
+.menu-open body {
+  overflow: hidden;
+}

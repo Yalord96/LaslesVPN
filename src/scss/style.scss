@@ -3,7 +3,10 @@
 @import "base/media-query";
 
 /* Include FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&family=Rubik:wght@400;500;700&display=swap');
+@include font('Rubik', Rubik-Regular, 400, normal);
+@include font('Rubik', Rubik-Medium, 500, normal);
+@include font('Rubik', Rubik-Bold, 700, normal);
+
 /* Default FONT */ 
 $fontSize: rem(16);
 $fontFamily: 'Rubik';
@@ -78,6 +81,8 @@ $responsiveType: 1;
 
 @import "common";
 @import "base";
+@import "header";
+@import "footer";
 
 body {
 	/* Scroll is locked */

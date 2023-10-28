@@ -1,0 +1,113 @@
+.footer {
+  background-color: #F8F8F8;
+  // .footer__container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    @include adaptiveValue('margin-top', 220, 120);
+    @include adaptiveValue('margin-bottom', 100, 20);
+
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+  }
+  // .footer__info
+  &__info {
+    display: flex;
+    flex: 0 0 rem(300);
+    flex-direction: column;
+    @include adaptiveValue('gap', 30, 15);
+    @include mobile {
+      flex: 0 0 auto;
+    }
+  }
+  // .footer__logo
+  &__logo {
+    color: $darkColor;
+    @include adaptiveValue('font-size', 20, 14);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    img {
+      width: rem(35);
+      height: rem(36);
+      margin-right: rem(10);
+    }
+  }
+  // .footer__description
+  &__description {
+    @include adaptiveValue('font-size', 16, 12);
+    line-height: 1.875;
+  }
+  // .footer__socials
+  &__socials {
+    // .footer__socials_item
+    display: flex;
+    gap: rem(20);
+    &_item {
+      border-radius: rem(70);
+      background: #fff;
+      width: rem(34);
+      height: rem(34);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & svg {
+        width: rem(34);
+        height: rem(34);
+      }
+    }
+  }
+  // .footer__copy-right
+  &__copy-right {
+    color: #AFB5C0;
+    @include adaptiveValue('font-size', 16, 12);
+    line-height: 1.875;
+    @include mobile {
+      text-align: center;
+    }
+  }
+  // .footer__menu-block
+  &__menu-block {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 1 auto;
+    @include adaptiveValue('gap', 120, 20);
+    @include mobile {
+      margin-bottom: rem(40);
+    }
+  }
+  // .footer__menu
+  &__menu {
+  }
+
+  .menu-footer {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('gap', 30, 15);
+    // .menu__header
+    &__header {
+      color: $darkColor;
+      @include adaptiveValue('font-size', 18, 14);
+      font-weight: 500;
+      line-height: 1.66667;
+    }
+    // .menu__body
+    &__body {
+    }
+    // .menu__list
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+      // .menu__list_item
+      &_item {
+        @include adaptiveValue('font-size', 16, 12);
+        line-height: 1.875;
+      }
+    }
+  }
+}
+
